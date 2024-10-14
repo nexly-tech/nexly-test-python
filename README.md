@@ -48,7 +48,7 @@ python etl_pipeline.py --company_name "no name" --date "2025-12-31"
 ```
 Expected output:
 ```bash
-Company name validation failed: expected "Lol", found "Bluegem III GP SARL".
+Company name validation failed: expected "no name", found "Bluegem III GP SARL".
 Date validation failed: expected "2025-12-31", found "2023-12-31".
 ```
 
