@@ -52,6 +52,12 @@ Company name validation failed: expected "no name", found "Bluegem III GP SARL".
 Date validation failed: expected "2025-12-31", found "2023-12-31".
 ```
 
+### Optional
+- How we can make *Company Name* extraction more robust between reports with a different layouts (can be unswered in text)
+- Documentation:
+  - Explains how your solution works.
+  - How to add new extractors/validators.
+
 ### How to Send Results for Review
 - **Fork the repository.**
 - **Create a new branch** for your solution.
