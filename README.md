@@ -63,3 +63,9 @@ Date validation failed: expected "2025-12-31", found "2023-12-31".
 - **Create a new branch** for your solution.
 - **Push your code** to the new branch.
 - **Send the results** for review via Telegram: https://t.me/ashugaev
+
+
+### Install requirements
+- pip install PyPDF2
+- pip install pdfminer.six
+- 
