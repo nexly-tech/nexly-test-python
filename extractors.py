@@ -1,29 +1,17 @@
 import unicodedata
-
+from abc import abstractmethod
 # Для анализа и извлечения текста
 from pdfminer.high_level import extract_pages
 from pdfminer.layout import LTChar, LTTextBoxHorizontal, LTRect, LTLine
 
 
-class ExtractorText:
-    """Class for extractors"""
-
-    params = {
-        'company_name': {
-            'font': 'BCDFEE+Aptos-Bold',
-            'size': 18.0,
-        },
-        'date': {
-            'font': 'BCDHEE+Aptos',
-            'size': 18.0,
-        },
-    }
+class BaseExtractorText:
+    """Base class for extractors"""
 
     def __init__(self, path_pdf, type_extractor: str, max_pages: int = None):
         self.path_pdf = path_pdf
-        self.max_pages = max_pages
         self.type_extractor = type_extractor
-        self.param = ExtractorText.params.get(type_extractor, None)
+        self.max_pages = max_pages
 
     def __repr__(self):
         return self.__class__.__name__
@@ -54,6 +42,29 @@ class ExtractorText:
         except Exception as e:
             print(e)
 
+    @abstractmethod
+    async def get_text(self) -> list:
+        """factory method"""
+        raise NotImplementedError
+
+
+class ExtractorText(BaseExtractorText):
+
+    params = {
+        'company_name': {
+            'font': 'BCDFEE+Aptos-Bold',
+            'size': 18.0,
+        },
+        'date': {
+            'font': 'BCDHEE+Aptos',
+            'size': 18.0,
+        },
+    }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.param = ExtractorText.params.get(self.type_extractor, None)
+
     async def get_text(self) -> list:
         lines_text = await self._get_lines_text()
 
@@ -73,8 +84,3 @@ class ExtractorText:
         except Exception as e:
             print(e)
 
-
-
-# if isinstance(line, LTTextBoxHorizontal) and \
-#                         not isinstance(line, LTLine) and \
-#                         not isinstance(line, LTRect):
