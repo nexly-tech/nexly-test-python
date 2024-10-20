@@ -13,7 +13,7 @@ async def main():
         'company_name': args_terminal.company_name,
         'date': args_terminal.date,
     }
-    path_pdf = "report2.pdf"
+    path_pdf = "report.pdf"
     pipeline = Pipeline(path_pdf, params_terminal)
     await pipeline.processing()
 
