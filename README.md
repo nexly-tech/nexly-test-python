@@ -66,6 +66,5 @@ Date validation failed: expected "2025-12-31", found "2023-12-31".
 
 
 ### Install requirements
-- pip install PyPDF2
 - pip install pdfminer.six
 - 
