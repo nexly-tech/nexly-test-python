@@ -67,4 +67,6 @@ Date validation failed: expected "2025-12-31", found "2023-12-31".
 
 ### Install requirements
 - pip install pdfminer.six
-- 
+
+### Start script
+python3 main.py --company_name "Bluegem III GP SARL" --date "2024-10-12"

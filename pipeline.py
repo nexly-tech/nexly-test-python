@@ -10,16 +10,23 @@ class Pipeline:
         self.params = params
 
     async def processing(self):
+        # accept terminal parameters
         company_name = self.params.get('company_name')
         date = self.params.get('date')
 
+        # create an extractor object
         extractor = ExtractorText(self.path_pdf, 'company_name', 1)
+        # create an validator object
         validator = ValidateCompanyNameText()
 
+        """create an Executor object that will launch the extractor, 
+        and then, based on the extracted data, transfer it to the validator"""
         ex_company_name = ExecutorText(extractor, validator, company_name)
         result = await ex_company_name.start_executor()
         print(result)
 
+
+        #same steps, but for Date
         extractor = ExtractorText(self.path_pdf, 'date', 1)
         validator = ValidateDateText()
 
