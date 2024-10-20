@@ -18,7 +18,7 @@ We need to build a pipeline to validate PDF data, specifically targeting the com
 - **Ease of Expansion:** New validators should be simple to add, following a standard interface or protocol.
 - **Field-Specific Validations:**
   - **Company Name Validator:** Confirms that the extracted company name matches the provided company_name argument.
-  - **Date Validator:** Validates that the extracted date field aligns with the provided date argument and that it follows the YYYY-MM-DD format.
+  - **Date Validator:** Validates that the extracted date field aligns with the provided date argument in the YYYY-MM-DD format.
   - **Clear Feedback:** In case of validation failure, each validator should return a detailed message indicating what failed, along with the expected versus actual values.
 
 ### Expected Result
